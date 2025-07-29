@@ -1,4 +1,9 @@
 <?php
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    http_response_code(405);
+    die("🚫 Método no permitido: usa el formulario para enviar datos.");
+}
+
 $conexion = new mysqli("localhost", "root", "", "rot");
 
 if ($conexion->connect_error) {
